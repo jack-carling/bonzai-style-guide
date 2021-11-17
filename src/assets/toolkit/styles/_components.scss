@@ -1,0 +1,322 @@
+@import 'variables';
+
+:focus-visible {
+  outline: 2px solid $green;
+}
+
+// Navigation
+nav {
+  a {
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: $dark-gray;
+  }
+}
+
+// Hero banners
+article.hero {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/hero.jpg');
+}
+
+// General padding on all pages
+section.main {
+  padding: 2rem 5rem;
+}
+@media screen and (max-width: 600px) {
+  section.main {
+    padding: 2rem 1rem;
+  }
+}
+
+// Custom date component
+div.date {
+  display: inline-block;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  div {
+    width: max-content;
+    border: 1px solid $gray;
+    position: relative;
+    display: flex;
+    padding: 0.5rem;
+    input[type='date'] {
+      margin-left: 0.5rem;
+      border: none;
+    }
+    input[type='date']:focus-visible {
+      outline: none;
+    }
+    i {
+      color: $gray;
+    }
+    i.chevron {
+      pointer-events: none;
+      position: absolute;
+      right: 0.5rem;
+    }
+    ::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+// Custom select component
+div.select {
+  display: inline-block;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  div {
+    width: 197px;
+    border: 1px solid $gray;
+    position: relative;
+    display: flex;
+    padding: 0.5rem;
+    select {
+      cursor: pointer;
+      width: 100%;
+      padding: 0 0.5rem;
+      appearance: none;
+      margin-left: 0.5rem;
+      border: none;
+    }
+    i {
+      color: $gray;
+    }
+    i.chevron {
+      pointer-events: none;
+      position: absolute;
+      right: 0.5rem;
+    }
+  }
+}
+
+// Quick flexbox and margin
+div.flex {
+  display: flex;
+  &.col {
+    flex-direction: column;
+  }
+  &.top {
+    margin-top: 1rem;
+  }
+  &.right {
+    margin-right: 1rem;
+  }
+  &.bottom {
+    margin-bottom: 1rem;
+  }
+  &.left {
+    margin-left: 1rem;
+  }
+  &.gap {
+    gap: 1rem;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  &.a-start {
+    align-items: flex-start;
+  }
+  &.a-end {
+    align-items: flex-end;
+  }
+  &.a-center {
+    align-items: center;
+  }
+  &.j-sb {
+    justify-content: space-between;
+  }
+}
+
+// Custom buttons
+button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  min-width: 120px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  &.green {
+    background-color: $green;
+    color: $white;
+  }
+  &.white {
+    background-color: $white;
+    border: 1px solid $green;
+    color: $green;
+  }
+}
+
+// Focus on buttons
+button:focus-visible {
+  outline: 2px solid $red;
+}
+
+// Image gallery
+section.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  img {
+    max-width: 100%;
+  }
+  &.focus {
+    img:first-of-type {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  section.gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 800px) {
+  section.gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  section.gallery {
+    grid-template-columns: 1fr;
+    &.focus {
+      img:first-of-type {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  min-height: 260px;
+  background-color: $dark-gray;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 5rem;
+  position: relative;
+  .social {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    right: 5rem;
+    bottom: 3rem;
+    a:focus-visible {
+      outline: 2px solid $white;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    padding: 2rem 1rem !important;
+    .social {
+      flex-direction: column;
+      right: 2rem;
+      bottom: auto;
+    }
+  }
+}
+
+// Cards
+article.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 850px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Card
+div.card {
+  min-width: 230px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  color: $white;
+  div.icon {
+    width: 41px;
+    height: 41px;
+    background-color: $white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  &.brown {
+    background-color: $brown;
+    i {
+      color: $brown;
+    }
+  }
+  &.green {
+    background-color: $green;
+    i {
+      color: $green;
+    }
+  }
+  &.dark-gray {
+    background-color: $dark-gray;
+    i {
+      color: $dark-gray;
+    }
+  }
+  &.gray {
+    background-color: $gray;
+    i {
+      color: $gray;
+    }
+  }
+}
+
+// Rooms
+section.rooms {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 1rem;
+  p {
+    margin-bottom: 5rem;
+  }
+  img {
+    max-width: 100%;
+  }
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    div.buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    img:not(:first-of-type) {
+      margin-top: 2rem;
+    }
+  }
+}

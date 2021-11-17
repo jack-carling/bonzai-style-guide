@@ -4,11 +4,13 @@ fabricator: true
 
 <h1 data-f-toggle="labels">Docs</h1>
 
+<p>Please refer to our Vue.js project</p>
+
 {{#each docs}}
 
-	<div class="f-item-group">
-		<h2 id="{{@key}}"><a href="#{{@key}}">{{name}}</a></h2>
-		{{{content}}}
-	</div>
+<div class="f-item-group">
+  <h2 id="{{@key}}"><a href="#{{@key}}">{{name}}</a></h2>
+  {{{content}}}
+</div>
 
 {{/each}}
